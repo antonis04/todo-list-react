@@ -1,13 +1,148 @@
-body {
+.body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.task-list__title {
+  text-align: left;
+  margin: 0;
+}
+
+
+.task-list {
+  padding: 10px;
+}
+
+.task-list__items {
+  list-style: none;
+  padding: 0;
+}
+
+/* Pojedyncze zadanie */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.task-item__content {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+}
+
+.task-item__done {
+  color: green;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.task-item__done:hover {
+  transition-duration: 2s;
+  background: darkgreen;
+}
+
+.task-item__remove {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+  font-size: 20px;
+  transition-transform: 0.5s;
+}
+
+.task-item__remove:hover {
+  background: red;
+  transition-duration: 2s;
+}
+
+.task-item--completed .task-item__content {
+  text-decoration: line-through;
+}
+
+
+
+@media (max-width: 768px) {
+  .task-form__input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .task-form__button {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-item__content {
+    font-size: 14px;
+  }
+
+  .task-item__done,
+  .task-item__remove {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .task-form__form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .task-list__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .task-list__buttons {
+    justify-content: flex-start;
+    gap: 5px;
+  }
+
+  .task-list__button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .task-item__content {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .task-item__done,
+  .task-item__remove {
+    font-size: 16px;
+  }
 }
