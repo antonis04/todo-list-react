@@ -1,0 +1,22 @@
+
+  .task-list__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .task-list__title {
+    text-align: left;
+    margin: 0;
+  }
+  
+  
+  .task-list {
+    padding: 10px;
+  }
+  
+  .task-list__items {
+    list-style: none;
+    padding: 0;
+  }
+  
