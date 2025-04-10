@@ -1,43 +1,41 @@
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
 
+.task-item__content {
+  flex: 1;
+  text-align: center;
+  font-size: 18px;
+}
 
-  .task-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .task-item__content {
-    flex: 1;
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  .task-item__done {
-    color: green;
-    cursor: pointer;
-    font-size: 20px;
-    margin-right: 10px;
-  }
-  
-  .task-item__done:hover {
-    transition-duration: 2s;
-    background: darkgreen;
-  }
-  
-  .task-item__remove {
-    color: rgb(255, 0, 0);
-    cursor: pointer;
-    font-size: 20px;
-    transition-transform: 0.5s;
-  }
-  
-  .task-item__remove:hover {
-    background: red;
-    transition-duration: 2s;
-  }
-  
-  .task-item--completed .task-item__content {
-    text-decoration: line-through;
-  }
+.task-item__done {
+  color: green;
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.task-item__done:hover {
+  transition-duration: 2s;
+  background: darkgreen;
+}
+
+.task-item__remove {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+  font-size: 20px;
+  transition-transform: 0.5s;
+}
+
+.task-item__remove:hover {
+  background: red;
+  transition-duration: 2s;
+}
+
+.task-item--completed .task-item__content {
+  text-decoration: line-through;
+}

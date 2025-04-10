@@ -1,9 +1,7 @@
+const Header = ({ title }) => (
+  <header>
+    <h1 class="title">{title}</h1>
+  </header>
+);
 
-const Header = ({title}) => (
-        <header>
-              <h1 class="title">{title}</h1>
-        </header>
-    );
-
-
-    export default Header;
+export default Header;
