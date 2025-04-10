@@ -7,7 +7,7 @@ import Container from "./Container";
 
 
 const tasks = [
-  {id: 1, content: "przejsc na react", done: false },
+  {id: 1, content: "przejsc na reacta", done: false },
   {id: 2, content: "zjeść obiad", done: true },
 ];
 
