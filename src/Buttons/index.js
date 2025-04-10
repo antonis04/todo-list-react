@@ -2,19 +2,19 @@ import React from "react";
 import "./style.css";
 
 const Buttons = ({ tasks, hideDoneTasks }) => (
-  <div className="task-list__buttons">
+  <div className="buttons">
     {tasks.length > 0 && (
-      <React.Fragment>
-        <button className="task-list__button">
+      <>
+        <button className="buttons__button">
           {hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
         </button>
         <button
-          className="task-list__button"
+          className="buttons__button"
           disabled={tasks.every(({ done }) => done)}
         >
           Ukończ wszystkie
         </button>
-      </React.Fragment>
+      </>
     )}
   </div>
 );

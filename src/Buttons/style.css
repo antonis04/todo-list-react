@@ -1,21 +1,21 @@
-.task-list__buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .task-list__button {
-    padding: 8px 16px;
-    font-size: 14px;
-    border: none;
-    border-radius: 4px;
-    background-color: #17a2b8;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .task-list__button:hover {
-    transition-duration: 2s;
-    background-color: #0094f7;
-  }
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.buttons__button {
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #17a2b8;
+  color: #fff;
+  cursor: pointer;
+}
+
+.buttons__button:hover {
+  transition-duration: 2s;
+  background-color: #0094f7;
+}
