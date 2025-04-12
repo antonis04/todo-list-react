@@ -10,6 +10,8 @@ const Tasks = ({ tasks }) => (
       </li>
     ))}
   </ul>
+
+
 );
 
 export default Tasks;
