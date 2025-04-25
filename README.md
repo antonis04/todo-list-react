@@ -15,4 +15,4 @@ This application demonstrates the implementation of React components, hooks (use
 
 ## Live Demo
 
-[View the live application](https://your-deployment-link.com) (Replace with your deployment link when available)
+[View the live application](https://antonis04.github.io/todo-list-react/)
