@@ -36,7 +36,7 @@
   transition-duration: 2s;
 }
 
-.task-item__content--done {
+.tasks-item__content--done {
   text-decoration: line-through;
 }
 
