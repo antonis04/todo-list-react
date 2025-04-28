@@ -2,6 +2,9 @@
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  padding: 20px;
+  background-color: white;
+  margin-bottom: 10px;
 }
 
 .form__input {
@@ -17,13 +20,12 @@
   font-size: 16px;
   border: none;
   border-radius: 4px;
-  background-color: #17a2b8;
+  background-color: #006666;
   color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .form__button:hover {
-  transition-duration: 2s;
-  background-color: #007081;
-  transform: scale(1.1);
+  background-color: #008080;
 }
