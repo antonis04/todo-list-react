@@ -7,12 +7,16 @@ import Header from "./Header";
 import Container from "./Container";
 import * as hello from "./utils/hello";
 
+// Dodano stałą z domyślnymi zadaniami
+const defaultTasks = [
+  { id: 1, content: "przejsc na reacta", done: false },
+  { id: 2, content: "zjeść obiad", done: true },
+];
+
 function App() {
   const [hideDone, setHideDone] = useState(false);
-  const [tasks, setTasks] = useState([
-    { id: 1, content: "przejsc na reacta", done: false },
-    { id: 2, content: "zjeść obiad", done: true },
-  ]);
+  // Użycie defaultTasks
+  const [tasks, setTasks] = useState(defaultTasks);
 
   const toggleHideDone = () => {
     setHideDone((hideDone) => !hideDone);

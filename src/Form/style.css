@@ -29,3 +29,13 @@
 .form__button:hover {
   background-color: #008080;
 }
+
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .form__input {
+    margin-bottom: 8px;
+  }
+}

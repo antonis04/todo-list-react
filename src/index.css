@@ -1,5 +1,5 @@
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto", "Arial", sans-serif;
   background-color: #f0f0f0;
   margin: 0;
   padding: 0;
@@ -9,6 +9,7 @@ body {
   .task-form__input {
     font-size: 14px;
     padding: 8px;
+    margin-bottom: 8px;
   }
 
   .task-form__button {
@@ -75,5 +76,19 @@ body {
   .task-item__done,
   .task-item__remove {
     font-size: 16px;
+  }
+
+  /* Dodaj uniwersalne style dla formularza i przycisków */
+  .form {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .form__input {
+    margin-bottom: 8px;
+  }
+  .buttons {
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
   }
 }
