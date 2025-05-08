@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
@@ -7,16 +7,27 @@ import Header from "./Header";
 import Container from "./Container";
 import * as hello from "./utils/hello";
 
-// Dodano stałą z domyślnymi zadaniami
-const defaultTasks = [
-  { id: 1, content: "przejsc na reacta", done: false },
-  { id: 2, content: "zjeść obiad", done: true },
-];
+const TASKS_LOCAL_STORAGE_KEY = "tasks";
+
+function getInitialTasks() {
+  const tasksFromStorage = localStorage.getItem(TASKS_LOCAL_STORAGE_KEY);
+  if (tasksFromStorage) {
+    try {
+      return JSON.parse(tasksFromStorage);
+    } catch {
+      return [];
+    }
+  }
+  return [];
+}
 
 function App() {
   const [hideDone, setHideDone] = useState(false);
-  // Użycie defaultTasks
-  const [tasks, setTasks] = useState(defaultTasks);
+  const [tasks, setTasks] = useState(getInitialTasks);
+
+  useEffect(() => {
+    localStorage.setItem(TASKS_LOCAL_STORAGE_KEY, JSON.stringify(tasks));
+  }, [tasks]);
 
   const toggleHideDone = () => {
     setHideDone((hideDone) => !hideDone);
