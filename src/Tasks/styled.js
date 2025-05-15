@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const TasksList = styled.ul`
+export const Task = styled.ul`
   list-style: none;
 `;
 export const Item = styled.li`
