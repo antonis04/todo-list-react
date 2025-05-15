@@ -1,0 +1,11 @@
+import styled, { css } from "styled-components";
+
+
+export const ContainerBox = styled.div`
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+`;
