@@ -1,5 +1,4 @@
-import { ButtonContainer } from "./styled";
-import { Button } from "./styled";
+import { ButtonContainer, Button } from "./styled";
 
 const Buttons = ({ tasks, hideDone, toggleHideDone, setAllDone }) => (
   <ButtonContainer>

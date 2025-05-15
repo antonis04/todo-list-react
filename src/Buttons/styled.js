@@ -19,11 +19,4 @@ export const Button = styled.button`
     color: #008080;
     background-color: transparent;
   }
-  @media (max-width: 768px) {
-  .buttons-container {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-  }
-}
 `;
