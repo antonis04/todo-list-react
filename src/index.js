@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
+import Tasks from "./Features/tasks/Tasks"; // Corrected import path
 import { GlobalStyle } from "./GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import { thunk } from "redux-thunk"; // Corrected import for `thunk`nk"; // Use named import for `thunk`
 
 const initializeState = {
   tasks: [],
@@ -22,27 +24,33 @@ const tasksReducer = (state = initializeState, action) => {
         ],
       };
 
-      
-
     default:
       return state;
   }
 };
 
-const store = configureStore({reducer: tasksReducer});
+// Add redux-thunk middleware
+const store = configureStore({
+  reducer: tasksReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
+});
+
 console.log(store.getState());
 
-
+store.dispatch({
+  type: "addTask",
+  payload: "Nauczyc sie dispatch",
+});
+console.log(store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <GlobalStyle />
-    <App />
+    <Provider store={store}>
+      <GlobalStyle />
+      <Tasks />
+    </Provider>
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
