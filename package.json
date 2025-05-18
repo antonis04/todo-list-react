@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://antonis04.github.io/todo-list-react/",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",

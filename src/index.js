@@ -1,8 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import { GlobalStyle } from './GlobalStyle';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { GlobalStyle } from "./GlobalStyle";
+import reportWebVitals from "./reportWebVitals";
+import { configureStore } from "@reduxjs/toolkit";
+
+const initializeState = {
+  tasks: [],
+};
+
+const tasksReducer = (state = initializeState, action) => {
+  switch (action.type) {
+    case "addTask":
+      return {
+        ...state,
+        tasks: [
+          ...state.tasks,
+          {
+            content: action.payload,
+          },
+        ],
+      };
+
+      
+
+    default:
+      return state;
+  }
+};
+
+const store = configureStore({reducer: tasksReducer});
+console.log(store.getState());
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
