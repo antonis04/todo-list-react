@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Tasks from "./Features/tasks/Tasks"; // Corrected import path
 import { GlobalStyle } from "./GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
+import App from "./App"; 
 
 const initializeState = {
   tasks: [],
@@ -46,7 +46,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <GlobalStyle />
-      <Tasks />
+      <App />
     </Provider>
   </React.StrictMode>
 );
