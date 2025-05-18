@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import App from "./App"; 
+import {addTask} from "./Features/tasks/tasksSlice";
 
 const initializeState = {
   tasks: [],
@@ -28,18 +29,9 @@ const tasksReducer = (state = initializeState, action) => {
   }
 };
 
-// Remove explicit addition of redux-thunk
 const store = configureStore({
   reducer: tasksReducer,
 });
-
-console.log(store.getState());
-
-store.dispatch({
-  type: "addTask",
-  payload: "Nauczyc sie dispatch",
-});
-console.log(store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
