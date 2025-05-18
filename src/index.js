@@ -5,7 +5,6 @@ import { GlobalStyle } from "./GlobalStyle";
 import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import { thunk } from "redux-thunk"; // Corrected import for `thunk`nk"; // Use named import for `thunk`
 
 const initializeState = {
   tasks: [],
@@ -29,10 +28,9 @@ const tasksReducer = (state = initializeState, action) => {
   }
 };
 
-// Add redux-thunk middleware
+// Remove explicit addition of redux-thunk
 const store = configureStore({
   reducer: tasksReducer,
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
 
 console.log(store.getState());
