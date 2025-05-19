@@ -23,16 +23,16 @@ export const Content = styled.span`
   text-align: left;
   font-size: 16px;
   margin-left: 10px;
-  ${({ done }) =>
-    done &&
+  ${({ $done }) =>
+    $done &&
     css`
       text-decoration: line-through;
     `}
 `;
 
 export const Button = styled.button`
-  ${({ toggleDone }) =>
-    toggleDone &&
+  ${({ $toggleDone }) =>
+    $toggleDone &&
     css`
       background-color: #008000;
       color: white;
@@ -52,8 +52,8 @@ export const Button = styled.button`
       }
     `}
 
-  ${({ remove }) =>
-    remove &&
+  ${({ $remove }) =>
+    $remove &&
     css`
       background-color: #dc3545;
       color: white;
