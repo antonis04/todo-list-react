@@ -6,32 +6,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import App from "./App"; 
 import {addTask} from "./Features/tasks/tasksSlice";
+import store from "./store";
 
-const initializeState = {
-  tasks: [],
-};
-
-const tasksReducer = (state = initializeState, action) => {
-  switch (action.type) {
-    case "addTask":
-      return {
-        ...state,
-        tasks: [
-          ...state.tasks,
-          {
-            content: action.payload,
-          },
-        ],
-      };
-
-    default:
-      return state;
-  }
-};
-
-const store = configureStore({
-  reducer: tasksReducer,
-});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
