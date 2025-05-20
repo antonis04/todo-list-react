@@ -8,17 +8,21 @@ const TaskList = () => {
 
   return (
     <Task>
-      {tasks.map((task) => (
-        <Item key={task.id} hidden={task.done && hideDone}>
-          <Button $toggleDone onClick={() => dispatch(toggleTaskDone(task.id))}>
-            {task.done ? "✔" : ""}
-          </Button>
-          <Content $done={task.done}>{task.content}</Content>
-          <Button $remove onClick={() => dispatch(removeTask(task.id))}>
-            🗑
-          </Button>
-        </Item>
-      ))}
+      {Array.isArray(tasks) &&
+        tasks.map((task) => (
+          <Item key={task.id} hidden={task.done && hideDone}>
+            <Button
+              $toggleDone
+              onClick={() => dispatch(toggleTaskDone(task.id))}
+            >
+              {task.done ? "✔" : ""}
+            </Button>
+            <Content $done={task.done}>{task.content}</Content>
+            <Button $remove onClick={() => dispatch(removeTask(task.id))}>
+              🗑
+            </Button>
+          </Item>
+        ))}
     </Task>
   );
 };
