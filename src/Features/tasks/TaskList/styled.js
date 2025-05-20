@@ -16,6 +16,11 @@ export const Item = styled.li`
     css`
       display: none;
     `}
+
+  @media (max-width: 767px) {
+    grid-template-columns: auto 1fr auto;
+    word-break: break-word;
+  }
 `;
 
 export const Content = styled.span`
@@ -28,6 +33,10 @@ export const Content = styled.span`
     css`
       text-decoration: line-through;
     `}
+
+  @media (max-width: 767px) {
+    padding: 10px;
+  }
 `;
 
 export const Button = styled.button`

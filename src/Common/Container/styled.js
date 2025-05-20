@@ -1,12 +1,13 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
+export const ContainerBox = styled.main`
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
 
-export const ContainerBox = styled.div`
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 0;
-  background-color: #f0f0f0;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 0;
-  
+  @media (max-width: 767px) {
+    padding: 10px;
+    margin: 0 auto;
+    width: 100%;
+  }
 `;
