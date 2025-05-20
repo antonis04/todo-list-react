@@ -1,20 +1,19 @@
-import { takeLatest, call, put, delay } from "redux-saga/effects";
+import { debounce, call, put, delay, select } from "redux-saga/effects";
 import {
   fetchExampleTasks,
   fetchExampleTasksSuccess,
   fetchExampleTasksError,
+  selectTasks,
 } from "./tasksSlice";
 import { getExampleTasks } from "./getExampleTasks";
 
 function* fetchExampleTasksHandler() {
+    console.log("starting work")
   try {
-    yield delay(1000); // dla lepszego UX
+    const tasks = yield select(selectTasks);
+    yield delay(1000);
     const exampleTasks = yield call(getExampleTasks);
-
-    // Sprawdzamy zawartość pobranych danych w konsoli
     console.log("Pobrane zadania:", exampleTasks);
-
-    // Upewniamy się, że odpowiedź jest zawsze tablicą
     const tasksArray = Array.isArray(exampleTasks) ? exampleTasks : [];
 
     yield put(fetchExampleTasksSuccess(tasksArray));
@@ -25,5 +24,5 @@ function* fetchExampleTasksHandler() {
 }
 
 export function* watchFetchExampleTasks() {
-  yield takeLatest(fetchExampleTasks.type, fetchExampleTasksHandler);
+  yield debounce(2000, fetchExampleTasks.type, fetchExampleTasksHandler);
 }
