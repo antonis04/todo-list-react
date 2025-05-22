@@ -5,33 +5,34 @@ import {
   fetchExampleTasks,
   selectTasksState,
 } from "../../tasksSlice";
-import { Button } from "./styled";
+import { Button, ButtonContainer } from "./styled";
 
 const Buttons = () => {
   const dispatch = useDispatch();
-  const { hideDone, tasks } = useSelector(selectTasksState);
-  // Ensure tasks is an array before calling .every()
-  const isEveryTaskDone =
-    Array.isArray(tasks) && tasks.length > 0 && tasks.every(({ done }) => done);
+  const { hideDone, tasks, loading } = useSelector(selectTasksState);
 
-  // Check if there are any tasks
   const hasAnyTasks = Array.isArray(tasks) && tasks.length > 0;
+  const isEveryTaskDone = hasAnyTasks && tasks.every(({ done }) => done);
 
   return (
-    <>
-      <Button onClick={() => dispatch(toggleHideDone())}>
-        {hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}
+    <ButtonContainer>
+      {hasAnyTasks && (
+        <>
+          <Button onClick={() => dispatch(toggleHideDone())}>
+            {hideDone ? "Pokaż ukończone" : "Ukryj ukończone"}
+          </Button>
+          <Button
+            onClick={() => dispatch(setAllDone())}
+            disabled={isEveryTaskDone}
+          >
+            Ukończ wszystkie
+          </Button>
+        </>
+      )}
+      <Button onClick={() => dispatch(fetchExampleTasks())} disabled={loading}>
+        {loading ? "Ładowanie..." : "Pobierz przykładowe zadania"}
       </Button>
-      <Button
-        onClick={() => dispatch(setAllDone())}
-        disabled={!hasAnyTasks || isEveryTaskDone}
-      >
-        Ukończ wszystkie
-      </Button>
-      <Button onClick={() => dispatch(fetchExampleTasks())}>
-        Pobierz przykładowe zadania
-      </Button>
-    </>
+    </ButtonContainer>
   );
 };
 

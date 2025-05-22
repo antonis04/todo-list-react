@@ -1,26 +1,39 @@
-import Section from "../../../Common/Section";
-import Header from "../../../Common/Header";
-import Container from "../../../Common/Container";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { getTaskById } from "../tasksSlice";
+import React from "react";
+import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { getTaskById } from "../tasksSlice";
+import Container from "../../../Common/Container";
+import Header from "../../../Common/Header";
+import Section from "../../../Common/Section";
 
-function TaskPage() {
+const TaskPage = () => {
   const { id } = useParams();
   const task = useSelector((state) => getTaskById(state, id));
+
+  if (!task) {
+    return (
+      <Container>
+        <Header title="Szczegóły zadania" />
+        <Section body={<p>Sorka, nie ma takiego zadania 😉</p>} />
+      </Container>
+    );
+  }
+
   return (
     <Container>
       <Header title="Szczegóły zadania" />
-
-      <Section 
-      title={task ? task.content : "Nie znaleziono zadania"} 
-      body={
-      <><strong>Ukończono: </strong> {task.done ? "Tak" : "Nie"}</>
-  }
-  />
+      <Section
+        title={task.content}
+        body={
+          <>
+            <p>
+              <strong>Ukończono:</strong> {task.done ? "Tak" : "Nie"}
+            </p>
+          </>
+        }
+      />
     </Container>
-
   );
-}
+};
 
 export default TaskPage;
