@@ -14,17 +14,6 @@ export const Forms = styled.form`
   }
 `;
 
-export const FormInput = styled.input`
-  flex: 1;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-
-  @media (max-width: 767px) {
-    width: 100%;
-  }
-`;
 
 export const FormButton = styled.button`
   padding: 10px 20px;

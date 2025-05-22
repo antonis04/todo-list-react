@@ -9,8 +9,13 @@ const tasksSlice = createSlice({
     loading: false,
   },
   reducers: {
-    addTask: ({ tasks }, { payload }) => {
-      tasks.push(payload);
+    addTask: (state, { payload }) => {
+      // Use the standard Redux Toolkit pattern
+      // and ensure tasks is an array before pushing
+      if (!Array.isArray(state.tasks)) {
+        state.tasks = [];
+      }
+      state.tasks.push(payload);
     },
     toggleHideDone: (state) => {
       state.hideDone = !state.hideDone;
@@ -52,5 +57,40 @@ export const {
   fetchExampleTasksError,
 } = tasksSlice.actions;
 
-export const selectTasks = (state) => state.tasks;
+const selectTasksState = (state) => state.tasks;
+
+export { selectTasksState };
+
+export const selectTasks = (state) => selectTasksState(state);
+export const selectTasksList = (state) => selectTasksState(state).tasks || [];
+export const selectHideDone = (state) => selectTasksState(state).hideDone;
+export const selectLoading = (state) => selectTasksState(state).loading;
+export const selectIsEveryTaskEmpty = (state) =>
+  selectTasksList(state).length === 0;
+export const selectIsEveryTaskDone = (state) => {
+  const tasks = selectTasksList(state);
+  return tasks.length > 0 && tasks.every(({ done }) => done);
+};
+
+export const getTaskById = (state, taskId) => {
+  const tasks = selectTasksList(state);
+  return Array.isArray(tasks)
+    ? tasks.find(({ id }) => id === taskId)
+    : undefined;
+};
+
+export const selectTaskByQuery = (state, query) => {
+  const tasks = selectTasksList(state);
+
+  if (!query || query.trim() === "") {
+    return tasks;
+  }
+
+  const queryTrimmed = query.trim().toUpperCase();
+
+  return tasks.filter(({ content }) =>
+    content.toUpperCase().includes(queryTrimmed)
+  );
+};
+
 export default tasksSlice.reducer;
