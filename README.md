@@ -13,7 +13,8 @@ This is a modern todo list application built with React. It allows users to effi
 
 This application demonstrates the implementation of React components, hooks (useState), and proper state management for a seamless task management experience.
 
-## About
+## About You can view the live demo of the application here:
+- [Demo on GitHub Pages](https://antonis04.github.io/todo-list-react/)
 
 ### Live Demo
 
